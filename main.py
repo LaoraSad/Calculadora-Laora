@@ -8,34 +8,368 @@
 #usar try para que no me rompa nada o usar else
 
 
-#figuras_2D_3D=["circulo", "cuadrado", "trapecio","rombo","triangulo rectangulo","cubo", "esfera", "pirámide","cono"]
-#figuras_3D=["cubo", "esfera", "pirámide","cono"]
-formulas_2D=["area"]
-formulas_3D=[]
-continuar="si"
+continuar = "si"
+
 while continuar == "si":
     print("----CALCULADORA GEOMETRICA\n")
+
     print("----------opciones disponibles de figuras 2D------------\n")
     print(
         "circulo\n"
         "cuadrado\n"
         "trapecio\n"
         "rombo\n"
-        "triangulo\n" 
-        "rectangulo\n"
-        )
+        "triangulo rectangulo\n"
+    )
+
     print("-----------opciones disponibles de figuras 3D------------\n")
     print(
         "cubo\n"
         "esfera\n"
-        "prirámide\n"
+        "piramide\n"
         "cono\n"
+    )
+
+    try:
+        figura = int(input("-----Qué tipo de figuras deseas?\n1 (2D) o 2 (3D)-----: "))
+    except ValueError:
+        print("Debes ingresar un número valido.")
+        continue
+
+    if figura != 1 and figura != 2:
+        print("Solo puedes escoger 1 o 2.")
+        continue
+
+    # FIGURAS 2D
+    if figura == 1:
+
+        print("figuras 2D disponibles:")
+        print(
+            "circulo\n"
+            "cuadrado\n"
+            "trapecio\n"
+            "rombo\n"
+            "triangulo rectangulo\n"
         )
-    
-    figura=int((input("Qué tipo de figuras deseas?\n 1(2D) o 2(3D)")))
-    if figura= circilos
-        print("las formulas disponibles")
 
+        figura_2d = input("Escribe la figura que deseas: ").lower()
 
+        figuras_2d_validas = ["circulo", "cuadrado", "trapecio", "rombo", "triangulo", "rectangulo"]
 
+        if figura_2d not in figuras_2d_validas:
+            print("Figura no válida.")
+            continue
 
+        if figura_2d == "circulo": #CIRCULO
+
+            print("\nFORMULAS DISPONIBLES")
+            print("1. area")
+            print("2. perimetro")
+            print("3. diametro")
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                radio = float(input("Ingresa el radio del circulo: "))
+            except ValueError:
+                print("Debes ingresar un número.")
+                continue
+
+            pi = 3.1416
+
+            if formula == "1":
+                area = pi * radio ** 2
+                print("El area del circulo es:", area)
+
+            elif formula == "2":
+                perimetro = 2 * pi * radio
+                print("El perimetro del circulo es:", perimetro)
+
+            elif formula == "3":
+                diametro = 2 * radio
+                print("El diametro es:", diametro)
+
+            elif figura_2d == "cuadrado": #CUADRADO
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. area")
+                print("2. perimetro")
+                print("3. diagonal")
+
+            formula = input("Escoge una formula: ")
+
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                lado = float(input("Ingresa el lado del cuadrado: "))
+            except ValueError:
+                print("Debes ingresar un número.")
+                continue
+
+            if formula == "1":
+                area = lado ** 2
+                print("El area es:", area)
+
+            elif formula == "2":
+                perimetro = 4 * lado
+                print("El perimetro es:", perimetro)
+
+            elif formula == "3":
+                diagonal = lado * 1.414
+                print("La diagonal es:", diagonal)
+
+            elif figura_2d == "trapecio": #TRAPECIO
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. area")
+                print("2. perimetro")
+                print("3. base media")
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                base_mayor = float(input("Ingresa la base mayor: "))
+                base_menor = float(input("Ingresa la base menor: "))
+                altura = float(input("Ingresa la altura: "))
+                lado1 = float(input("Ingresa lado 1: "))
+                lado2 = float(input("Ingresa lado 2: "))
+            except ValueError:
+                print("Debes ingresar números.")
+                continue
+
+            if formula == "1":
+                area = ((base_mayor + base_menor) * altura) / 2
+                print("El area es:", area)
+
+            elif formula == "2":
+                perimetro = base_mayor + base_menor + lado1 + lado2
+                print("El perimetro es:", perimetro)
+
+            elif formula == "3":
+                base_media = (base_mayor + base_menor) / 2
+                print("La base media es:", base_media)
+
+            elif figura_2d == "rombo": #ROMBO
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. area")
+                print("2. perimetro")
+                print("3. altura")
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                diagonal_mayor = float(input("Ingresa la diagonal mayor: "))
+                diagonal_menor = float(input("Ingresa la diagonal menor: "))
+                lado = float(input("Ingresa el lado: "))
+            except ValueError:
+                print("Debes ingresar números.")
+                continue
+
+            if formula == "1":
+                area = (diagonal_mayor * diagonal_menor) / 2
+                print("El area es:", area)
+
+            elif formula == "2":
+                perimetro = 4 * lado
+                print("El perimetro es:", perimetro)
+
+            elif formula == "3":
+                area = (diagonal_mayor * diagonal_menor) / 2
+                altura = area / lado
+                print("La altura es:", altura)
+            
+            elif figura_2d == "triangulo": #TRIANGULO
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. area")
+                print("2. hipotenusa")
+                print("3. perimetro")
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                cateto1 = float(input("Ingresa el primer cateto: "))
+                cateto2 = float(input("Ingresa el segundo cateto: "))
+            except ValueError:
+                print("Debes ingresar números.")
+                continue
+
+            if formula == "1":
+                area = (cateto1 * cateto2) / 2
+                print("El area es:", area)
+
+            elif formula == "2":
+                hipotenusa = (cateto1**2 + cateto2**2) ** 0.5
+                print("La hipotenusa es:", hipotenusa)
+
+            elif formula == "3":
+                hipotenusa = (cateto1**2 + cateto2**2) ** 0.5
+                perimetro = cateto1 + cateto2 + hipotenusa
+                print("El perimetro es:", perimetro)
+
+    # FIGURAS 3D
+    elif figura == 2:
+
+        print("figuras 3D disponibles:")
+        print(
+            "cubo\n"
+            "esfera\n"
+            "piramide\n"
+            "cono\n"
+        )
+
+        figura_3d = input("Escribe la figura que deseas: ").lower()
+
+        figuras_3d_validas = ["cubo", "esfera", "piramide", "cono"]
+
+        if figura_3d not in figuras_3d_validas:
+            print("Figura no válida.")
+            continue
+
+        if figura_3d == "cubo": #CUBO
+
+            print("\nFORMULAS DISPONIBLES")
+            print("1. volumen")
+            print("2. area superficial")
+            print("3. aristas")
+
+            formula = input("Escoge una formula: ")
+
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                lado = float(input("Ingresa el lado del cubo: "))
+            except ValueError:
+                print("Debes ingresar un número.")
+                continue
+
+            if formula == "1":
+                volumen = lado ** 3
+                print("El volumen es:", volumen)
+
+            elif formula == "2":
+                area = 6 * lado ** 2
+                print("El area superficial es:", area)
+
+            elif formula == "3":
+                aristas = 12 * lado
+                print("La suma de aristas es:", aristas)
+
+            elif figura_3d == "esfera": #ESFERA
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. volumen")
+                print("2. area superficial")
+                print("3. circunferencia maxima")
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                radio = float(input("Ingresa el radio de la esfera: "))
+            except ValueError:
+                print("Debes ingresar un número.")
+                continue
+
+            pi = 3.1416
+
+            if formula == "1":
+                volumen = (4/3) * pi * radio ** 3
+                print("El volumen es:", volumen)
+
+            elif formula == "2":
+                area = 4 * pi * radio ** 2
+                print("El area superficial es:", area)
+
+            elif formula == "3":
+                circunferencia = 2 * pi * radio
+                print("La circunferencia maxima es:", circunferencia)
+
+            elif figura_3d == "cono": #CONO
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. volumen")
+                print("2. area lateral")
+                print("3. generatriz") #línea recta que forma parte de una figura tridimensional
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                radio = float(input("Ingresa el radio: "))
+                altura = float(input("Ingresa la altura: "))
+            except ValueError:
+                print("Debes ingresar números.")
+                continue
+
+            pi = 3.1416
+
+            generatriz = (radio**2 + altura**2) ** 0.5
+
+            if formula == "1":
+                volumen = (pi * radio**2 * altura) / 3
+                print("El volumen es:", volumen)
+
+            elif formula == "2":
+                area_lateral = pi * radio * generatriz
+                print("El area lateral es:", area_lateral)
+
+            elif formula == "3":
+                print("La generatriz es:", generatriz)
+            
+            elif figura_3d == "piramide": #PIRAMIDE
+
+                print("\nFORMULAS DISPONIBLES")
+                print("1. volumen")
+                print("2. area de la base")
+                print("3. area total aproximada")
+
+            formula = input("Escoge una formula: ")
+            if formula not in ["1", "2", "3"]:
+                print("Formula no válida.")
+                continue
+
+            try:
+                lado = float(input("Ingresa el lado de la base: "))
+                altura = float(input("Ingresa la altura: "))
+            except ValueError:
+                print("Debes ingresar números.")
+                continue
+
+            if formula == "1":
+                volumen = (lado ** 2 * altura) / 3
+                print("El volumen es:", volumen)
+
+            elif formula == "2":
+                area_base = lado ** 2
+                print("El area de la base es:", area_base)
+
+            elif formula == "3":
+                area_base = lado ** 2
+                area_lateral = 2 * lado * ((lado/2)**2 + altura**2) ** 0.5
+                area_total = area_base + area_lateral
+                print("El area total aproximada es:", area_total)
+            
+
+    continuar = input("\n¿Quieres calcular otra figura? (si/no): ").lower()
