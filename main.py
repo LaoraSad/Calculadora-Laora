@@ -1,12 +1,4 @@
-#calcular formulas de 4 figuras 2D (area, perometro) y 4 figuras 3D(volumen) y un triangulo rectangulo(angulo)
-#saber qué figuras voy a utilizar y qué formulas quiero que saque por cada figura
-#necesito funciones para cada formula de las figuras(puedes usar los datos enseguida)
-#uso while para mostras el menu y pedirle al usuario que figura desea conocer, el usuario debe colocar los valores (poner el tipo de numero) y yo los voy a poner en la formula que me pida
-#cuando escoja la figura necesito que se muestre que formulas estan disponibles
-#cuando escoja la formula y muestre el resultado preguntar si quiere escoger otra figura
-#TENER EN CUENTA: el usuario debe poner los parametros para rellenar la formula, debe saber que va a colocar un numero
-#usar try para que no me rompa nada o usar else
-
+from utils import generic_input
 
 continuar = "si"
 
@@ -20,6 +12,7 @@ while continuar == "si":
         "trapecio\n"
         "rombo\n"
         "triangulo rectangulo\n"
+        
     )
 
     print("-----------opciones disponibles de figuras 3D------------\n")
@@ -28,19 +21,19 @@ while continuar == "si":
         "esfera\n"
         "piramide\n"
         "cono\n"
+        
     )
 
     opcion_valida = False
     while not opcion_valida:
-        try:
-            figura = int(input("-----Qué tipo de figuras deseas?\n1 (2D) o 2 (3D)-----: "))
-            if figura == 1 or figura == 2:
-                opcion_valida = True
-            else:
-                print("solo puedes escoger 1 o 2, intenta nuevamente")
+        
+        figura = generic_input("-----Qué tipo de figuras deseas?\n1 (2D) o 2 (3D)-----: ", False, int)
+        if figura == 1 or figura == 2:
+            opcion_valida = True
+        else:
+            print("solo puedes escoger 1 o 2, intenta nuevamente")
 
-        except ValueError:
-            print("Debes ingresar un número valido.")
+        
             
 
     # FIGURAS 2D-------------
@@ -59,7 +52,6 @@ while continuar == "si":
         figura_2d = input("Escribe la figura que deseas: ").strip().lower()
         while figura_2d not in figuras_2d_validas:
             print("figura no valida. Revise la ortigrafia e intente nuevamente.")
-            
             figura_2d = input("Escribe la figura que deseas: ").strip().lower()
         
 
@@ -77,16 +69,13 @@ while continuar == "si":
                 
             radio_valido = False
             while not radio_valido:
-                try:
-                    radio = float(input("Ingresa el radio del circulo: "))
+            
+                    radio = generic_input("Ingresa el radio del circulo: ", False, float)
                     if radio > 0:
                         radio_valido = True
                     else:
                         print("La medida debe ser un numero positivo")
                     
-                except ValueError:
-                    print("Debes ingresar un número.")
-                
 
             pi = 3.1416
 
@@ -286,9 +275,10 @@ while continuar == "si":
             print("1. area")
             print("2. hipotenusa")
             print("3. perimetro")
+            print("4. angulo")
 
             formula = input("Escoge una formula: ")
-            while formula not in ["1", "2", "3"]:
+            while formula not in ["1", "2", "3", "4"]:
                 print("Formula no válida.")
                 formula = input("Escoge una formula: ")
  
@@ -326,6 +316,19 @@ while continuar == "si":
                 hipotenusa = (cateto1**2 + cateto2**2) ** 0.5
                 perimetro = cateto1 + cateto2 + hipotenusa
                 print("El perimetro es:", perimetro)
+
+            elif formula == "4":
+                angulo1= 90 
+                angulo2= generic_input("ingrese el angulo correspondiente: ", False, float)
+                angulo3= 90 - angulo2
+                if angulo1 + angulo2 + angulo3 < 180 and angulo2 < 90:
+                    print("el angulo es: " , angulo3)
+                    
+
+                else:
+                    print("los angulos no son validos")
+                    
+
 
     # FIGURAS 3D
     elif figura == 2:
