@@ -70,11 +70,11 @@ while continuar == "si":
             radio_valido = False
             while not radio_valido:
             
-                    radio = generic_input("Ingresa el radio del circulo: ", False, float)
-                    if radio > 0:
-                        radio_valido = True
-                    else:
-                        print("La medida debe ser un numero positivo")
+                radio = generic_input("Ingresa el radio del circulo: ", False, float)
+                if radio > 0:
+                    radio_valido = True
+                else:
+                    print("La medida debe ser un numero positivo")
                     
 
             pi = 3.1416
@@ -105,15 +105,12 @@ while continuar == "si":
             
             lado_valido = False
             while not lado_valido: 
-                try:
-                    lado = float(input("Ingresa el lado del cuadrado: "))
-                    if lado > 0:
-                        lado_valido = True
-                    else:
-                        print("La medida debe ser positiva")
-                    
-                except ValueError:
-                    print("Debes ingresar un número.")
+                
+                lado = generic_input("Ingresa el lado del cuadrado:", False, float )
+                if lado > 0:
+                    lado_valido = True
+                else:
+                    print("La medida debe ser positiva")
                 
 
             if formula == "1":
@@ -142,14 +139,13 @@ while continuar == "si":
             
             base_mayor_valida = False
             while not base_mayor_valida:
-                try:
-                    base_mayor = float(input("Ingresa la base mayor: "))
-                    if  base_mayor > 0:
-                        base_mayor_valida = True
-                    else:
-                        print("la medida debe ser un numero positivo")
-                except ValueError:
-                    print("Debes ingresar un numero valido. intente nuevamete.")
+                
+                base_mayor = generic_input("Ingresa la base mayor:", False, float)
+                if  base_mayor > 0:
+                    base_mayor_valida = True
+                else:
+                    print("la medida debe ser un numero positivo")
+                
             
             base_menor_valida = False
             while not base_menor_valida:
@@ -166,36 +162,33 @@ while continuar == "si":
 
             altura_valida = False
             while not altura_valida:
-                try:
-                    altura = float(input("Ingresa la altura: "))
-                    if altura > 0:
-                        altura_valida = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                altura = generic_input("Ingresa la altura: ", False, float)
+                if altura > 0:
+                    altura_valida = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
  
             lado1_valido = False
             while not lado1_valido:
-                try:
-                    lado1 = float(input("Ingresa lado 1 (cm): "))
-                    if lado1 > 0:
-                        lado1_valido = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                lado1 = generic_input("Ingresa lado 1 (cm): ", False, float)
+                if lado1 > 0:
+                    lado1_valido = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+
  
             lado2_valido = False
             while not lado2_valido:
-                try:
-                    lado2 = float(input("Ingresa lado 2 (cm): "))
-                    if lado2 > 0:
-                        lado2_valido = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                lado2 = generic_input("Ingresa lado 2 (cm): ", False,float)
+                if lado2 > 0:
+                    lado2_valido = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
 
             if formula == "1":
                 area = ((base_mayor + base_menor) * altura) / 2
@@ -223,14 +216,13 @@ while continuar == "si":
 
             diagonal_mayor_valida = False
             while not diagonal_mayor_valida:
-                try:
-                    diagonal_mayor = float(input("Ingresa la diagonal mayor(cm): "))
-                    if diagonal_mayor > 0:
-                        diagonal_mayor_valida = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                t
+                diagonal_mayor = generic_input("Ingresa la diagonal mayor(cm): ", False, float)
+                if diagonal_mayor > 0:
+                    diagonal_mayor_valida = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
 
             diagonal_menor_valida = False
             while not diagonal_menor_valida:
@@ -247,14 +239,13 @@ while continuar == "si":
 
             lado_valido = False
             while not lado_valido:
-                try:
-                    lado = float(input("Ingresa el lado(cm): "))
-                    if lado > 0:
-                        lado_valido = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                lado = generic_input("Ingresa el lado(cm): ", False, float)
+                if lado > 0:
+                    lado_valido = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
 
             if formula == "1":
                 area = (diagonal_mayor * diagonal_menor) / 2
@@ -275,34 +266,31 @@ while continuar == "si":
             print("1. area")
             print("2. hipotenusa")
             print("3. perimetro")
-            print("4. angulo")
 
             formula = input("Escoge una formula: ")
-            while formula not in ["1", "2", "3", "4"]:
+            while formula not in ["1", "2", "3"]:
                 print("Formula no válida.")
                 formula = input("Escoge una formula: ")
  
             cateto1_valido = False
             while not cateto1_valido:
-                try:
-                    cateto1 = float(input("Ingresa el primer cateto (cm): "))
-                    if cateto1 > 0:
-                        cateto1_valido = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                cateto1 = generic_input("Ingresa el primer cateto (cm): ", False, float)
+                if cateto1 > 0:
+                    cateto1_valido = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
  
             cateto2_valido = False
             while not cateto2_valido:
-                try:
-                    cateto2 = float(input("Ingresa el segundo cateto (cm): "))
-                    if cateto2 > 0:
-                        cateto2_valido = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                cateto2 = generic_input("Ingresa el segundo cateto (cm): ", False, float)
+                if cateto2 > 0:
+                    cateto2_valido = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
+            
 
             if formula == "1":
                 area = (cateto1 * cateto2) / 2
@@ -316,18 +304,6 @@ while continuar == "si":
                 hipotenusa = (cateto1**2 + cateto2**2) ** 0.5
                 perimetro = cateto1 + cateto2 + hipotenusa
                 print("El perimetro es:", perimetro)
-
-            elif formula == "4":
-                angulo1= 90 
-                angulo2= generic_input("ingrese el angulo correspondiente: ", False, float)
-                angulo3= 90 - angulo2
-                if angulo1 + angulo2 + angulo3 < 180 and angulo2 < 90:
-                    print("el angulo es: " , angulo3)
-                    
-
-                else:
-                    print("los angulos no son validos")
-                    
 
 
     # FIGURAS 3D
@@ -364,14 +340,12 @@ while continuar == "si":
 
             lado_valido = False
             while not lado_valido:
-                try:
-                    lado = float(input("Ingresa el lado del cubo (cm): "))
-                    if lado > 0:
-                        lado_valido = True
-                    else:
-                        print("La medida debe ser un número positivo. Intenta de nuevo.")
-                except ValueError:
-                    print("Debes ingresar un número válido. Intenta de nuevo.")
+                
+                lado = generic_input("Ingresa el lado del cubo (cm): ", False, float)
+                if lado > 0:
+                    lado_valido = True
+                else:
+                    print("La medida debe ser un número positivo. Intenta de nuevo.")
 
             if formula == "1":
                 volumen = lado ** 3
@@ -399,14 +373,12 @@ while continuar == "si":
                 
                 radio_valido = False
                 while not radio_valido:
-                    try:
-                        radio = float(input("Ingresa el radio de la esfera (cm): "))
+                    
+                        radio = generic_input("Ingresa el radio de la esfera (cm): ", False, float)
                         if radio > 0:
                             radio_valido = True
                         else:
-                            print("La medida debe ser un número positivo. Intenta de nuevo.")
-                    except ValueError:
-                        print("Debes ingresar un número válido. Intenta de nuevo.")
+                            print("La medida debe ser un número positivo. Intenta de nuevo.")             
 
                 pi = 3.1416
 
@@ -436,25 +408,23 @@ while continuar == "si":
 
                 radio_valido = False
                 while not radio_valido:
-                    try:
-                        radio = float(input("Ingresa el radio (cm): "))
-                        if radio > 0:
-                            radio_valido = True
-                        else:
-                            print("La medida debe ser un número positivo. Intenta de nuevo.")
-                    except ValueError:
-                        print("Debes ingresar un número válido. Intenta de nuevo.")
+                    
+                    radio = generic_input("Ingresa el radio (cm): ", False, float)
+                    if radio > 0:
+                        radio_valido = True
+                    else:
+                        print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
  
                 altura_valida = False
                 while not altura_valida:
-                    try:
-                        altura = float(input("Ingresa la altura: "))
-                        if altura > 0:
-                            altura_valida = True
-                        else:
-                            print("La medida debe ser un número positivo. Intenta de nuevo.")
-                    except ValueError:
-                        print("Debes ingresar un número válido. Intenta de nuevo.")
+                    
+                    altura = generic_input("Ingresa la altura: ", False, float)
+                    if altura > 0:
+                        altura_valida = True
+                    else:
+                        print("La medida debe ser un número positivo. Intenta de nuevo.")
+                    
 
                 pi = 3.1416
                 generatriz = (radio**2 + altura**2) ** 0.5
@@ -485,25 +455,22 @@ while continuar == "si":
 
                 lado_valido = False
                 while not lado_valido:
-                    try:
-                        lado = float(input("Ingresa el lado de la base (cm): "))
-                        if lado > 0:
-                            lado_valido = True
-                        else:
-                            print("La medida debe ser un número positivo. Intenta de nuevo.")
-                    except ValueError:
-                        print("Debes ingresar un número válido. Intenta de nuevo.")
- 
+                    
+                    lado = generic_input("Ingresa el lado de la base (cm): ", False, True)
+                    if lado > 0:
+                        lado_valido = True
+                    else:
+                        print("La medida debe ser un número positivo. Intenta de nuevo.")
+                
                 altura_valida = False
                 while not altura_valida:
-                    try:
-                        altura = float(input("Ingresa la altura (cm): "))
-                        if altura > 0:
-                            altura_valida = True
-                        else:
-                            print("La medida debe ser un número positivo. Intenta de nuevo.")
-                    except ValueError:
-                        print("Debes ingresar un número válido. Intenta de nuevo.")
+                    
+                    altura = generic_input("Ingresa la altura (cm): ", False, float)
+                    if altura > 0:
+                        altura_valida = True
+                    else:
+                        print("La medida debe ser un número positivo. Intenta de nuevo.")
+                    
 
                 if formula == "1":
                     volumen = (lado ** 2 * altura) / 3
